@@ -1,6 +1,6 @@
 use git2::Repository;
-use tempfile::tempdir;
 use std::fs;
+use tempfile::tempdir;
 
 /// Ensure `git init` initializes a repository correctly
 #[test]
@@ -13,7 +13,10 @@ fn test_git_init() {
     let _repo = Repository::init(&repo_path).expect("Failed to initialize repo");
 
     // Check if `.git` directory was created
-    assert!(repo_path.join(".git").exists(), "Repository was not initialized");
+    assert!(
+        repo_path.join(".git").exists(),
+        "Repository was not initialized"
+    );
 }
 
 /// Ensure `git status` detects new untracked files

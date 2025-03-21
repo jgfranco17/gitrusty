@@ -1,6 +1,6 @@
 use clap::{Parser, Subcommand}; // CLI parsing
-use git2::{Repository, Error, Status};  // Git operations
 use colored::*;
+use git2::{Error, Repository, Status}; // Git operations
 
 #[derive(Parser)]
 #[command(name = "RustGit")]
@@ -38,15 +38,15 @@ fn main() {
             }
         }
         Commands::Status => match print_status() {
-            Ok(_) => {},
+            Ok(_) => {}
             Err(e) => eprintln!("Error getting status: {}", e),
         },
         Commands::Log => match print_log() {
-            Ok(_) => {},
+            Ok(_) => {}
             Err(e) => eprintln!("Error getting commit log: {}", e),
         },
         Commands::Branch => match list_branches() {
-            Ok(_) => {},
+            Ok(_) => {}
             Err(e) => eprintln!("Error getting branches: {}", e),
         },
     }
