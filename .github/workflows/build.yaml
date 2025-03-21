@@ -20,5 +20,7 @@ jobs:
         uses: ./.github/actions/setup-workspace
 
       - name: Run tests
+        env:
+          RUST_BACKTRACE: full
         run: |
           cargo test --verbose
