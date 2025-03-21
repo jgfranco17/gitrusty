@@ -24,3 +24,11 @@ jobs:
           RUST_BACKTRACE: full
         run: |
           cargo test --verbose
+
+      - name: Check binary
+        env:
+          RUST_BACKTRACE: full
+        run: |
+          just release
+          ls -la
+          ./gitrusty --help
